@@ -12,9 +12,9 @@
  * @license  http://opensource.org/licenses/MIT MIT License
  */
 
-namespace CauseLabs\Crawler;
+namespace CauseLabs\Flink\Crawler;
 
-use CauseLabs\Analyzer\WebpageAnalyzer;
+use CauseLabs\Flink\Analyzer\WebpageAnalyzer;
 use FlameCore\Webtools\HttpClient;
 use FlameCore\Flink\Crawler\AnalyzingCrawler as Base;
 

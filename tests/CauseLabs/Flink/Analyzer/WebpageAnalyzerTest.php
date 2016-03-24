@@ -1,6 +1,6 @@
 <?php
 
-use CauseLabs\Analyzer\WebpageAnalyzer;
+use CauseLabs\Flink\Analyzer\WebpageAnalyzer;
 
 class WebpageAnalyzerTest extends PHPUnit_Framework_TestCase
 {

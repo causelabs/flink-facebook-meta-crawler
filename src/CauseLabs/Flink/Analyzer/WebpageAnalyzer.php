@@ -20,7 +20,7 @@
  * @license  http://opensource.org/licenses/ISC ISC License
  */
 
-namespace CauseLabs\Analyzer;
+namespace CauseLabs\Flink\Analyzer;
 
 use FlameCore\Webtools\WebpageAnalyzer as Base;
 
