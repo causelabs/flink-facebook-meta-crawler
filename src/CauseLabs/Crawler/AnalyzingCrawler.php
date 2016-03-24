@@ -35,7 +35,7 @@ class AnalyzingCrawler extends Base
             $analyzer = new WebpageAnalyzer($url, $http);
 
             // Get OpenGraph tags
-            $result = $this->getOpenGraphDetails();
+            $result = $analyzer->getOpenGraphDetails();
             $result['type'] = 'opengraph';
 
             if (empty($result['title'])) {
