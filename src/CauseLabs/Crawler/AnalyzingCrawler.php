@@ -15,6 +15,7 @@
 namespace CauseLabs\Crawler;
 
 use CauseLabs\Analyzer\WebpageAnalyzer;
+use FlameCore\Webtools\HttpClient;
 use FlameCore\Flink\Crawler\AnalyzingCrawler as Base;
 
 /**
