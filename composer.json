@@ -1,0 +1,22 @@
+{
+    "name": "causelabs/flink-facebook-meta-crawler",
+    "description": "Provides a crawler for Flink that returns meta information from Facebook OpenGraph tags",
+    "authors": [
+        {
+            "name": "Mark Horlbeck",
+            "email": "mark@causelabs.com"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "flamecore/flink": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "CauseLabs\\": "src\\CauseLabs"
+        }
+    }
+}
