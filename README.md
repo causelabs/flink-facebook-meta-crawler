@@ -17,7 +17,7 @@ In your code, use `CauseLabs\AnalyzingCrawler` to get an array back with OpenGra
 ### Example
 
 ```php
-use FlameCore\Flink\Flink;
+use CauseLabs\Flink\Flink;
 use CauseLabs\Crawler\AnalyzingCrawler;
 
 $flink = new Flink();
