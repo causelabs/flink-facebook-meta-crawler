@@ -1,6 +1,6 @@
 # flink-facebook-meta-crawler
 
-This package provides a (currently) super simple additional method to (Flamecore's Flink)[https://github.com/FlameCore/Flink] to allow parsing of links by retrieving a subset of Facebook OpenGraph tags.
+This package provides a (currently) super simple additional method to [Flamecore's Flink](https://github.com/FlameCore/Flink) to allow parsing of links by retrieving a subset of Facebook OpenGraph tags.
 
 ## Installation
 
