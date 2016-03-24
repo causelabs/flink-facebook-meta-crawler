@@ -14,15 +14,14 @@
 
 namespace CauseLabs\Flink;
 
-use FlameCore\Flink\Crawler\CrawlerInterface;
-use Doctrine\Common\Cache\Cache;
+use FlameCore\Flink\Flink as Base;
 
 /**
  * The entry class of Flink, just providing an override
  *
  * @author   Mark Horlbeck <mark@causelabs.com>
  */
-class Flink
+class Flink extends Base
 {
     /**
      * Fetches information about the given URL.
