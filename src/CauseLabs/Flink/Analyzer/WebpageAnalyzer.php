@@ -58,7 +58,7 @@ class WebpageAnalyzer extends Base
 
         foreach($nodes as $node) {
             $property = $node->getAttribute('property');
-            if (in_array($property, array_keys($propertyMap))) {
+            if (in_array($property, array_keys($propertyMap)) && $result[ $propertyMap[$property] ] === '') {
                 $result[ $propertyMap[$property] ] = $node->getAttribute('content');
             }
         }
