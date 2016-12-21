@@ -1,6 +1,7 @@
 <?php
 
 use CauseLabs\Flink\Analyzer\WebpageAnalyzer;
+use FlameCore\Webtools\HttpClient;
 
 class WebpageAnalyzerTest extends PHPUnit_Framework_TestCase
 {
@@ -41,15 +42,14 @@ class WebpageAnalyzerTest extends PHPUnit_Framework_TestCase
         $analyzer = new WebpageAnalyzer('https://vimeo.com/39507943');
         $info = $analyzer->getOpenGraphDetails();
 
-        $keys = ['title', 'image_url', 'site_name', 'video_url', 'description', 'url'];
+        $keys = ['title', 'image_url', 'site_name', 'description', 'url'];
 
         foreach ($keys as $key) {
             $this->assertArrayHasKey($key, $info);
             $this->assertNotEmpty($info[$key], $key . ' was empty ' . var_export($info, true));
         }
 
-        // Verify the video key has an embed in it (for YouTube).
-        $this->assertRegExp('/player\.vimeo\.com/', $info['video_url']);
+        $this->assertEmpty($info['video_url']);
     }
 
     public function testCanFetchNonvideoMetaTags()
@@ -66,12 +66,16 @@ class WebpageAnalyzerTest extends PHPUnit_Framework_TestCase
 
     public function testCanFollowRedirectsWithCookiesToGetMetaTags()
     {
-        $analyzer = new WebpageAnalyzer('http://www.nytimes.com/2016/12/13/business/an-edible-solution-to-extend-produces-shelf-life.html?_r=0');
+        $http = new HttpClient;
+        $http->acceptCookies();
+
+        $analyzer = new WebpageAnalyzer('http://www.nytimes.com/2016/12/13/business/an-edible-solution-to-extend-produces-shelf-life.html', $http);
         $info = $analyzer->getOpenGraphDetails();
 
-        $keys = ['title', 'image_url', 'site_name', 'video_url', 'description', 'url'];
+        $keys = ['title', 'image_url', 'description', 'url'];
         foreach ($keys as $key) {
             $this->assertArrayHasKey($key, $info);
+            $this->assertNotEmpty($info[$key], 'The ' . $key . ' was empty');
         }
     }
 }

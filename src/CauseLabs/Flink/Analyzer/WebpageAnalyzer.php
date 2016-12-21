@@ -56,14 +56,16 @@ class WebpageAnalyzer extends Base
             array_fill(0, count($propertyMap), '')
         );
 
-        foreach($nodes as $node) {
+        foreach ($nodes as $node) {
             $property = $node->getAttribute('property');
+
             if ($property === '') {
                 // attempt name
                 $property = $node->getAttribute('name');
             }
+
             if (in_array($property, array_keys($propertyMap)) && $result[ $propertyMap[$property] ] === '') {
-                $result[ $propertyMap[$property] ] = $node->getAttribute('content');
+                $result[ $propertyMap[$property] ] = utf8_decode($node->getAttribute('content'));
             }
         }
 
