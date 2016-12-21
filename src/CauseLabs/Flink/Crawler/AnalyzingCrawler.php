@@ -32,6 +32,8 @@ class AnalyzingCrawler extends Base
     {
         try {
             $http = new HttpClient($this->userAgent);
+            $http->acceptCookies();
+
             $analyzer = new WebpageAnalyzer($url, $http);
 
             // Get OpenGraph tags

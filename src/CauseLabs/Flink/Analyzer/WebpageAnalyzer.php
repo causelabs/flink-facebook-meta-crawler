@@ -42,12 +42,12 @@ class WebpageAnalyzer extends Base
     {
         $nodes = $this->html->findTags('meta');
         $propertyMap = [
-            'og:site_name' => 'site_name',
-            'og:url' => 'url',
-            'og:title' => 'title',
-            'og:image' => 'image_url',
+            'og:site_name'   => 'site_name',
+            'og:url'         => 'url',
+            'og:title'       => 'title',
+            'og:image'       => 'image_url',
             'og:description' => 'description',
-            'og:video:url' => 'video_url',
+            'og:video:url'   => 'video_url',
         ];
 
         // Create a default result array
@@ -58,6 +58,10 @@ class WebpageAnalyzer extends Base
 
         foreach($nodes as $node) {
             $property = $node->getAttribute('property');
+            if ($property === '') {
+                // attempt name
+                $property = $node->getAttribute('name');
+            }
             if (in_array($property, array_keys($propertyMap)) && $result[ $propertyMap[$property] ] === '') {
                 $result[ $propertyMap[$property] ] = $node->getAttribute('content');
             }
