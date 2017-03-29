@@ -64,6 +64,20 @@ class WebpageAnalyzerTest extends PHPUnit_Framework_TestCase
         $this->assertEmpty($info['video_url']);
     }
 
+    public function testCanFollowRedirects()
+    {
+        $http = new HttpClient;
+
+        $analyzer = new WebpageAnalyzer('http://po.st/FuwvU5', $http);
+        $info = $analyzer->getOpenGraphDetails();
+
+        $keys = ['title', 'image_url', 'description', 'url'];
+        foreach ($keys as $key) {
+            $this->assertArrayHasKey($key, $info);
+            $this->assertNotEmpty($info[$key], 'The ' . $key . ' was empty');
+        }
+    }
+
     public function testCanFollowRedirectsWithCookiesToGetMetaTags()
     {
         $http = new HttpClient;
