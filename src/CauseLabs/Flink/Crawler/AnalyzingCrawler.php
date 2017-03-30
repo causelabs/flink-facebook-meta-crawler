@@ -31,7 +31,7 @@ class AnalyzingCrawler extends Base
     public function crawl($url)
     {
         try {
-            $http = new HttpClient($this->userAgent);
+            $http = new HttpClient;
             $http->acceptCookies();
 
             $analyzer = new WebpageAnalyzer($url, $http);
